@@ -1,0 +1,1 @@
+Directories for classes that represent entities.
