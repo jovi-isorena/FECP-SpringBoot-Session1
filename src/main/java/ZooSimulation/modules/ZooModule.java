@@ -1,9 +1,12 @@
 package ZooSimulation.modules;
 
-import ZooSimulation.models.ErrorMessage;
-import ZooSimulation.models.Visitor;
-import ZooSimulation.models.Zoo;
+import ZooSimulation.models.*;
+import ZooSimulation.views.FeedAnimalView;
+import ZooSimulation.views.ZooEnclosuresMenuView;
 import ZooSimulation.views.ZooModuleMainMenuView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ZooModule {
     private Zoo zoo;
@@ -18,7 +21,7 @@ public class ZooModule {
         do{
             selection = ZooModuleMainMenuView.print();
             if(selection.equals("1")){
-
+                visitEnclosure();
             }else if(selection.equals("2")){
 
             }else if(selection.equals("3")){
@@ -36,6 +39,11 @@ public class ZooModule {
     }
 
     public void visitEnclosure(){
-
+        Enclosure<?> selectedEnclosure = ZooEnclosuresMenuView.print(zoo);
+        // TODO: change the feeding session by group
+        List<Animal> hungryAnimals = new ArrayList<>(selectedEnclosure.getAnimals().stream().filter(Animal::isHungry).toList());
+        for (Animal hungryAnimal : hungryAnimals){
+            FeedAnimalView.print(hungryAnimal);
+        }
     }
 }
