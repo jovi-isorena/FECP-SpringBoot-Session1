@@ -1,6 +1,6 @@
 package ZooSimulation.models;
 
-public class Vendor {
+public class Vendor extends Person {
 
     public void sell(){
 

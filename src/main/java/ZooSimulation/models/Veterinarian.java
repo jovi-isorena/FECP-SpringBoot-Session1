@@ -1,6 +1,6 @@
 package ZooSimulation.models;
 
-public class Veterinarian {
+public class Veterinarian extends Person {
 
     public void lecture(){
 

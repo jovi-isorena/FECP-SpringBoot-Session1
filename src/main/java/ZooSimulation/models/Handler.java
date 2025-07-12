@@ -1,6 +1,6 @@
 package ZooSimulation.models;
 
-public class Handler {
+public class Handler extends Person {
     public void feed(){
 
     }

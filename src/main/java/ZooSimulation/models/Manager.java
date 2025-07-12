@@ -1,6 +1,6 @@
 package ZooSimulation.models;
 
-public class Manager {
+public class Manager extends Person {
     private String userName;
     private String password;
 
