@@ -14,6 +14,4 @@ abstract public class Pachyderm extends Animal{
     public void roam() {
 
     }
-
-    abstract public void makeSound();
 }

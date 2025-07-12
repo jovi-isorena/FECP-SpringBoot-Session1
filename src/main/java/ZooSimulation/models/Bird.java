@@ -14,5 +14,4 @@ abstract public class Bird extends Animal{
     public void roam() {
 
     }
-    abstract public void makeSound();
 }

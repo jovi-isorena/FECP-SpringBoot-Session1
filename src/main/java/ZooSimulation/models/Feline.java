@@ -14,5 +14,4 @@ abstract public class Feline extends Animal{
     public void roam() {
 
     }
-    abstract public void makeSound();
 }

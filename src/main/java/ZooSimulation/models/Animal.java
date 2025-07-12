@@ -28,4 +28,5 @@ public abstract class Animal {
 
     }
     abstract public void roam();
+    abstract public void makeSound();
 }
