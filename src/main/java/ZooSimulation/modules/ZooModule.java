@@ -39,7 +39,9 @@ public class ZooModule {
     }
 
     public void visitEnclosure(){
+        visitor.setLocation("Enclosures");
         Enclosure<?> selectedEnclosure = ZooEnclosuresMenuView.print(zoo);
+        visitor.setLocation(selectedEnclosure.getName());
         // TODO: change the feeding session by group
         List<Animal> hungryAnimals = new ArrayList<>(selectedEnclosure.getAnimals().stream().filter(Animal::isHungry).toList());
         for (Animal hungryAnimal : hungryAnimals){
