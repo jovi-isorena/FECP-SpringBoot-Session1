@@ -1,8 +1,10 @@
 package ZooSimulation.modules;
 
-import ZooSimulation.models.*;
-import ZooSimulation.views.*;
-
+import ZooSimulation.models.Animal;
+import ZooSimulation.models.Manager;
+import ZooSimulation.models.Zoo;
+import ZooSimulation.views.AdminLoginView;
+import ZooSimulation.views.ManagerMainMenu;
 import java.util.Scanner;
 
 public class AdminModule {
@@ -10,17 +12,19 @@ public class AdminModule {
     Scanner scanner = new Scanner(System.in);
 
     //    Manager zooManager = new Manager("user1","password1");
-    public AdminModule(Zoo zoo) {
+    public AdminModule(Zoo zoo){
         this.zoo = zoo;
     }
 
-    public Zoo start() {
+    public Zoo start(){
         Manager manager = AdminLoginView.print();
         boolean valid = isManagerValid(manager);
-        if (valid) {
+        if(valid){
             ManagerMainMenu.print();
-            return zoo;
+
         }
+        return zoo;
+    }
 
 //        Used for shop assigning, vendor validation, and vendor name input
 
@@ -74,13 +78,8 @@ public class AdminModule {
     }
 
     public boolean isManagerValid(Manager manager){
-        if(manager.getUserName() == zoo.getManager().getUserName() &&
-        manager.getPassword() == zoo.getManager().getPassword()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return manager.getUserName().equals(zoo.getManager().getUserName()) &&
+                manager.getPassword().equals(zoo.getManager().getPassword());
     }
 
 
