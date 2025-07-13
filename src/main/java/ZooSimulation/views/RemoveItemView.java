@@ -6,16 +6,15 @@ import ZooSimulation.models.Vendor;
 import java.util.Scanner;
 
 public class RemoveItemView {
-    public static void print(Vendor vendor) {
-        Scanner scanner = new Scanner(System.in);
-        Shop assignedShop =  vendor.getAssignedShop();
+    public static void print(Shop shop, Scanner scanner) {
+//        Shop assignedShop =  vendor.getAssignedShop();
 
         System.out.print("Enter item to be removed: ");
         String productName = scanner.nextLine().toUpperCase();
 
-        if(assignedShop.getShopProducts().contains(productName)){
-            assignedShop.removeItems(productName);
-            System.out.println("Product removed!");
+        if(shop.getShopProducts().containsKey(productName)){
+            shop.removeItems(productName);
+            System.out.println(productName + " has been removed!");
         } else {
             System.out.println("No products found!");
         }

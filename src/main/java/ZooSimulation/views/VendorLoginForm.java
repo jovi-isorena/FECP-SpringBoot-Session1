@@ -7,10 +7,9 @@ import java.util.Scanner;
 
 public class VendorLoginForm {
 
-    public static String print(){
+    public static String print(Scanner scanner){
         System.out.print("Enter vendor name: ");
-        Scanner sc = new Scanner(System.in);
-        String vendorName = sc.nextLine();
+        String vendorName = scanner.nextLine();
         if (vendorName.isEmpty()){
             System.out.println(ErrorMessage.MISSING_INPUT);
         }
