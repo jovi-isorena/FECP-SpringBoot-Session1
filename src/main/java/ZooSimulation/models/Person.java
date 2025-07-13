@@ -35,6 +35,10 @@ public class Person {
     }
 
 
+    public Person(String name) {
+        this.name = name;
+    }
+
     public void setLocation(String location) {
         this.location = location;
     }
