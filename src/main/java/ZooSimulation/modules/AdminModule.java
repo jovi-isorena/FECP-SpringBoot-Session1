@@ -2,9 +2,11 @@ package ZooSimulation.modules;
 
 import ZooSimulation.models.Animal;
 import ZooSimulation.models.Manager;
+import ZooSimulation.models.Vendor;
 import ZooSimulation.models.Zoo;
-import ZooSimulation.views.AdminLoginView;
-import ZooSimulation.views.ManagerMainMenu;
+import ZooSimulation.views.*;
+
+
 import java.util.Scanner;
 
 public class AdminModule {
@@ -24,7 +26,7 @@ public class AdminModule {
 
         }
         return zoo;
-    }
+
 
 //        Used for shop assigning, vendor validation, and vendor name input
 
@@ -42,11 +44,9 @@ public class AdminModule {
 //            }
 
         {
-            int choice;
-            VendorMenu.print();
-
+        int choice = 0;
             do {
-                choice = scanner.nextInt();
+                choice = VendorMenu.print(scanner);
                 switch (choice) {
                     case 1:
                         ListItemView.print(validVendor);
@@ -67,6 +67,7 @@ public class AdminModule {
             return zoo;
         }
     }
+
 
 //    public void addAnimal(){
 //        Animal animal = AddAnimalView.print();
