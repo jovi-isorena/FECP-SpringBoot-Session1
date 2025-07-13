@@ -19,6 +19,17 @@ public class ZooSimulation {
         zoo.setTickets(new ArrayList<Ticket>());
         zoo.setPeople(new ArrayList<Person>());
 
+        Tiger tigerDemo = new Tiger("tiger");
+        Tiger tigerDemo2 = new Tiger("tigga");
+        Owl owlDemo = new Owl("Ovo");
+
+        Handler joshuaHandler = new Handler("joshua", 23);
+        joshuaHandler.assignAnimal(tigerDemo);
+        joshuaHandler.assignAnimal(tigerDemo2);
+        joshuaHandler.assignAnimal(owlDemo);
+
+        zoo.getPeople().add(joshuaHandler);
+
 //        List<Person> people = populatePeople();
 //        do{
 //            AdminModule adminModule = new AdminModule(zoo);
@@ -26,12 +37,14 @@ public class ZooSimulation {
 //        }while(!zoo.isOpen() || !zoo.isFinishedSetup());
 
 
-        TicketingModule ticketingModule = new TicketingModule(zoo);
-        zoo = ticketingModule.start();
+//        TicketingModule ticketingModule = new TicketingModule(zoo);
+//        zoo = ticketingModule.start();
 
 //        TicketingModule ticketingModule = new TicketingModule(zoo);
 //        zoo = ticketingModule.start();
 
+        AdminModule adminModule = new AdminModule(zoo);
+        zoo = adminModule.start();
 
     }
 }
