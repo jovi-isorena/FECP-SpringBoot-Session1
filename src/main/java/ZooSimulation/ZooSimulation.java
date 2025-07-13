@@ -19,16 +19,14 @@ public class ZooSimulation {
         zoo.setTickets(new ArrayList<Ticket>());
         zoo.setPeople(new ArrayList<Person>());
 
-        Tiger tigerDemo = new Tiger("tiger");
-        Tiger tigerDemo2 = new Tiger("tigga");
-        Owl owlDemo = new Owl("Ovo");
-
-        Handler joshuaHandler = new Handler("joshua", 23);
-        joshuaHandler.assignAnimal(tigerDemo);
-        joshuaHandler.assignAnimal(tigerDemo2);
-        joshuaHandler.assignAnimal(owlDemo);
-
-        zoo.getPeople().add(joshuaHandler);
+//        Tiger tigerDemo = new Tiger("tiger");
+//        Tiger tigerDemo2 = new Tiger("tigga");
+//        Owl owlDemo = new Owl("Ovo");
+//        Handler joshuaHandler = new Handler("joshua", 23);
+//        joshuaHandler.assignAnimal(tigerDemo);
+//        joshuaHandler.assignAnimal(tigerDemo2);
+//        joshuaHandler.assignAnimal(owlDemo);
+//        zoo.getPeople().add(joshuaHandler);
 
 //        List<Person> people = populatePeople();
 //        do{
