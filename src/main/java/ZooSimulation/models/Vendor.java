@@ -6,8 +6,8 @@ import java.util.List;
 
 
 public class Vendor extends Person {
-    public Vendor(String name, int age) {
-        super(name, age);
+    public Vendor(String name) {
+        super(name);
     }
 
     public Vendor(String name) {

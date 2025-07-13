@@ -1,6 +1,10 @@
 package ZooSimulation.models;
 
 abstract public class Pachyderm extends Animal{
+    public Pachyderm(String name) {
+        super(name); // passes name to Animal
+    }
+
     private String location;
     @Override
     public String getLocation() {

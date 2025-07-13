@@ -4,10 +4,16 @@ public abstract class Animal {
     private boolean isHealthy;
     private String name;
     private boolean isHungry;
-    public Animal(){
+
+    public Animal() {
         // by default, animals are healthy but hungry
         isHungry = true;
         isHealthy = true;
+    }
+
+    public Animal(String name) {
+        this();
+        this.name = name;
     }
 
     public String getName() {
