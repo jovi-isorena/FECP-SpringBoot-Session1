@@ -2,12 +2,14 @@ package ZooSimulation;
 
 import ZooSimulation.models.*;
 import ZooSimulation.modules.AdminModule;
+import ZooSimulation.views.WelcomeView;
 
 import java.util.ArrayList;
 
 public class ZooSimulation {
     public static void main(String[] args) {
         // entry point
+        WelcomeView.print();
         Zoo zoo = new Zoo();
         zoo.setPeople(new ArrayList<Person>());
         zoo.setAnimals(new ArrayList<Animal>());
@@ -19,7 +21,6 @@ public class ZooSimulation {
 
 //        TicketingModule ticketingModule = new TicketingModule(zoo);
 //        zoo = ticketingModule.start();
-
 
     }
 }

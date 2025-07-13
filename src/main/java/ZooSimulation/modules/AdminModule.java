@@ -26,8 +26,8 @@ public class AdminModule {
     }
 
     public void addAnimal(){
-        Animal animal = AddAnimalView.print();
-        zoo.getAnimals().add(animal);
+//        Animal animal = AddAnimalView.print();
+//        zoo.getAnimals().add(animal);
     }
 
     public Zoo getZoo() {
@@ -35,12 +35,7 @@ public class AdminModule {
     }
 
     public boolean isManagerValid(Manager manager){
-        if(manager.getUserName() == zoo.getManager().getUserName() &&
-        manager.getPassword() == zoo.getManager().getPassword()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return manager.getUserName().equals(zoo.getManager().getUserName()) &&
+                manager.getPassword().equals(zoo.getManager().getPassword());
     }
 }

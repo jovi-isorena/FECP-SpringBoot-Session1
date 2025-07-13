@@ -1,4 +1,4 @@
 package ZooSimulation.models;
 
-public class Visitor {
+public class Visitor extends Person {
 }
