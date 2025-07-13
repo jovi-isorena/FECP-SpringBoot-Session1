@@ -16,7 +16,6 @@ public class ZooModule {
 
     public Zoo start(){
         String selection = "";
-
         do{
             selection = ZooModuleMainMenuView.print();
             if(selection.equals("1")){
@@ -24,17 +23,14 @@ public class ZooModule {
             }else if(selection.equals("2")){
                 visitShop();
             }else if(selection.equals("3")){
-
+                visitHospital();
             }else if(selection.equals("4")){
-
+                VisitorLeaveZooView.print();
+                return zoo;
             }else{
                 System.out.println(ErrorMessage.INVALID_INPUT);
             }
-
-        }while(!selection.equals("4"));
-
-
-        return this.zoo;
+        }while(true);
     }
 
     public void visitEnclosure(){
@@ -65,5 +61,56 @@ public class ZooModule {
             }
             return;
         }
+    }
+
+    public void visitHospital(){
+        visitor.goTo("Hospital");
+        while(true){
+            String hospitalSelection = VisitorHospitalMainMenuView.print();
+            if(hospitalSelection.equals("1")){
+                viewSickAnimals();
+            }else if(hospitalSelection.equals("2")){
+                viewHealedAnimals();
+            }else if (hospitalSelection.equals("3")) {
+                attendScienceLecture();
+            }else if (hospitalSelection.equals("4")) {
+                healAnimals();
+            }else if (hospitalSelection.equals("5")){
+                return;
+            }
+        }
+
+    }
+
+    private void healAnimals() {
+        Veterinarian vet = zoo.getVet();
+        Hospital hospital = zoo.getHospital();
+        List<Animal> sickedAnimals = getSickedAnimals();
+        VisitorHealAnimalView.print(vet, sickedAnimals, zoo);
+    }
+
+    private void attendScienceLecture() {
+        Veterinarian vet = zoo.getVet();
+        VisitorAttendLectureView.print(vet);
+    }
+
+    private void viewHealedAnimals() {
+        Hospital hospital = zoo.getHospital();
+        if(hospital==null) {
+            System.out.println(ErrorMessage.HOSPITAL_NOT_FOUND);
+            return;
+        }
+        VisitorHealedAnimalView.print(hospital);
+    }
+
+
+
+    private void viewSickAnimals() {
+        List<Animal> sickedAnimals = getSickedAnimals();
+        VisitorSickAnimalView.print(sickedAnimals);
+    }
+
+    private List<Animal> getSickedAnimals() {
+        return zoo.getAnimals().stream().filter(a -> !a.isHealthy() && a.getLocation().equals("Hospital")).toList();
     }
 }
