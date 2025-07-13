@@ -4,10 +4,12 @@ public class Manager extends Person {
     private String userName;
     private String password;
 
-    public Manager() {
-
+    public Manager(String name, int age){
+        super(name, age);
     }
-    public Manager(String userName, String password) {
+
+    public Manager(String name, int age, String userName, String password) {
+        super(name, age); // required
         this.userName = userName;
         this.password = password;
     }
