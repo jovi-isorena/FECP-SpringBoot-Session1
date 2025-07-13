@@ -45,6 +45,8 @@ public class AdminModule {
                 case "4": { // Close zoo to visitors
                     System.out.println("Closed the zoo for visitors!");
                     zoo.closeTheZoo();
+                    //zoo.ForceClose();
+                    //return;
                     break;
                 }
                 case "5": { // Exit
