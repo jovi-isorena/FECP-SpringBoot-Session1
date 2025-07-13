@@ -61,7 +61,7 @@ public class Zoo {
     }
 
     public boolean isFinishedSetup() {
-        return this.people.size() < 10;
+        return this.people.size() > 5;
     }
 
     public Veterinarian getVet() {
