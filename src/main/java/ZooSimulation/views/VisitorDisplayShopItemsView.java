@@ -61,6 +61,6 @@ public class VisitorDisplayShopItemsView {
     }
 
     private static Map.Entry[] getProductEntries(Shop shop) {
-        return shop.getProducts().entrySet().toArray(new Map.Entry[0]);
+        return shop.getShopProducts().entrySet().toArray(new Map.Entry[0]);
     }
 }

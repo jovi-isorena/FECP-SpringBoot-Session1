@@ -10,10 +10,6 @@ public class Vendor extends Person {
         super(name);
     }
 
-    public Vendor(String name) {
-        super(name);
-    }
-
     private Shop assignedShop;
 
     public Shop getAssignedShop() {
