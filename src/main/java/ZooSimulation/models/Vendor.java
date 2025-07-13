@@ -6,11 +6,16 @@ import java.util.List;
 
 
 public class Vendor extends Person {
+    private Shop assignedShop;
+
     public Vendor(String name) {
         super(name);
     }
 
-    private Shop assignedShop;
+    public Vendor(String name, Shop assignedShop) {
+        super(name);
+        this.assignedShop = assignedShop;
+    }
 
     public Shop getAssignedShop() {
         return assignedShop;
