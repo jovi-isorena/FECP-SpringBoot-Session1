@@ -6,24 +6,58 @@ import ZooSimulation.models.Manager;
 import ZooSimulation.models.Zoo;
 import ZooSimulation.views.*;
 
+// todo vet timestamp and
+// enclosure types,
+// add animal, animal factory,
+// people factory
+
 public class AdminModule {
     private Zoo zoo;
 
-
-    //    Manager zooManager = new Manager("user1","password1");
     public AdminModule(Zoo zoo){
         this.zoo = zoo;
     }
 
     public Zoo start(){
-//        Manager manager = AdminLoginView.print();
-//        boolean valid = isManagerValid(manager);
-//        if(valid){
-//            ManagerMainMenu.print();
-//
-//        }
-        handlerModule();
-        return zoo;
+        // Initial setup
+        if (!zoo.isFinishedSetup()) ZooSetupMainMenu.setup(zoo);
+
+        // Admin log-in
+        Manager manager = null;
+        while (manager == null){
+            manager = AdminLoginView.validate(zoo);
+        }
+
+        while(true){
+            String option = AdminMainMenu.chooseOption();
+            switch (option){
+                case "1": { // Setup zoo staff
+                    ZooSetupMainMenu.setup(zoo);
+                    break;
+                }
+                case "2": { // Access Handler module
+                    handlerModule();
+                    break;
+                }
+                case "3": { // Open zoo to visitor shop
+                    System.out.println("Opened the zoo for visitors!");
+                    zoo.openTheZoo();
+                    break;
+                }
+                case "4": { // Close zoo to visitors
+                    System.out.println("Closed the zoo for visitors!");
+                    zoo.closeTheZoo();
+                    break;
+                }
+                case "5": { // Exit
+                    System.out.println("Exiting... Thank you!");
+                    return zoo;
+                }
+                default: {
+                    System.out.println("Invalid option");
+                }
+            }
+        }
     }
 
     public void addAnimal(){
@@ -44,15 +78,6 @@ public class AdminModule {
 
             AnimalHandlingMenu.handle(chosenAnimal);
         }
-    }
-
-    public boolean isHandlerValid(Handler handler){
-        return true;
-    }
-
-    public boolean isManagerValid(Manager manager){
-        return manager.getUserName().equals(zoo.getManager().getUserName()) &&
-                manager.getPassword().equals(zoo.getManager().getPassword());
     }
 
     public Zoo getZoo() {
