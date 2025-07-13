@@ -4,7 +4,6 @@ public abstract class Animal {
     private boolean isHealthy;
     private String name;
     private boolean isHungry;
-
     public Animal(){
         // by default, animals are healthy but hungry
         isHungry = true;
@@ -39,4 +38,6 @@ public abstract class Animal {
     }
     abstract public void roam();
     abstract public void makeSound();
+    abstract public String getLocation();
+    abstract public void setLocation(String location);
 }
