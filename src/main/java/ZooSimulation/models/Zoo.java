@@ -6,9 +6,19 @@ public class Zoo {
     private List<Person> people;
     private List<Building> buildings;
     private List<Animal> animals;
+    private List<Ticket> tickets;
+
     private boolean isOpen;
     public Manager getManager() {
         return manager;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
     public void setManager(Manager manager) {
