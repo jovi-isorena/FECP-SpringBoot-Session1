@@ -10,7 +10,8 @@ public enum ErrorMessage {
     VENDOR_NOT_FOUND("Vendor not found."),
     PERSON_ALREADY_EXISTS("Person is already assigned to a role."),
     PRODUCT_ALREADY_EXISTS("Product is in the list."),
-    EMPTY_SHOP("No available products.");
+    EMPTY_SHOP("No available products."),
+    HOSPITAL_NOT_FOUND("Hospital is not established.");
 
     private final String description;
     ErrorMessage(String description){
