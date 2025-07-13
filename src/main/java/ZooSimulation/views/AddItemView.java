@@ -15,6 +15,7 @@ public class AddItemView {
 //        String shopType = scanner.nextLine().toUpperCase();
         System.out.print("Enter price: ");
         Double price = scanner.nextDouble();
+        scanner.nextLine();
 
         if (!productName.trim().isEmpty() && productName.matches("[a-zA-Z]+")) {
 //            System.out.print("Which shop does this item belong to? (Gift/Food/Drinks): ");
@@ -27,6 +28,5 @@ public class AddItemView {
 
         System.out.println("Press ENTER to return to the menu");
         scanner.nextLine();
-        scanner.close();
     }
 }
