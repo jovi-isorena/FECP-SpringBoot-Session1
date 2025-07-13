@@ -5,8 +5,7 @@ import ZooSimulation.models.Vendor;
 import java.util.Scanner;
 
 public class VendorMenu {
-    public static Integer print(){
-        Scanner scanner = new Scanner(System.in);
+    public static Integer print(Scanner scanner){
         int choice;
 
             System.out.println("=== Welcome Vendor! ===");
