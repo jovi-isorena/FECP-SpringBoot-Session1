@@ -45,7 +45,7 @@ public class ZooSimulation {
         AdminModule adminModule = new AdminModule(zoo);
         do{
             zoo = adminModule.start();
-
+            //if(zoo.isForcedClose()) return;
         }while(zoo.isFinishedSetup() && zoo.isOpen());
 
         TicketingModule ticketingModule = new TicketingModule(zoo);
