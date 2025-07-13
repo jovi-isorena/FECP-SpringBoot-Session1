@@ -9,9 +9,11 @@ public class AdminMainMenu {
         System.out.println("\n=== Zoo Admin Main Menu ===");
         System.out.println("1. Setup Zoo Staff");
         System.out.println("2. Access Handler Module");
-        System.out.println("3. Open Zoo to Visitors");
-        System.out.println("4. Close Zoo to Visitors");
-        System.out.println("5. Exit");
+        System.out.println("3. Access Vendor Module");
+        System.out.println("4. Add Animal");
+        System.out.println("5. Open Zoo to Visitors");
+        System.out.println("6. Close Zoo to Visitors");
+        System.out.println("7. Exit");
 
         System.out.print("Choose an option: ");
 

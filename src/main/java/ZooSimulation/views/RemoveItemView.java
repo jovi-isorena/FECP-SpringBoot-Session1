@@ -21,6 +21,5 @@ public class RemoveItemView {
 
         System.out.println("Press ENTER to return to the menu");
         scanner.nextLine();
-        scanner.close();
     }
 }

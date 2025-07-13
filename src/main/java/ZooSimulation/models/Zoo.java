@@ -7,8 +7,11 @@ public class Zoo {
     private List<Building> buildings;
     private List<Animal> animals;
     private List<Ticket> tickets;
-
+    private Manager manager;
     private boolean isOpen;
+    private boolean isForceClosed;
+    private  boolean isFinishedSetup;
+
     public Manager getManager() {
         return manager;
     }
@@ -25,7 +28,6 @@ public class Zoo {
         this.manager = manager;
     }
 
-    private Manager manager;
     public List<Animal> getAnimals() {
         return animals;
     }
@@ -50,18 +52,28 @@ public class Zoo {
         this.people = people;
     }
 
+    public void finishSetup(){
+        this.isFinishedSetup = true;
+    }
+
     public void openTheZoo(){
         this.isOpen = true;
     }
     public void closeTheZoo(){
         this.isOpen = false;
     }
+    public void forceCloseZoo(){
+        this.isForceClosed = true;
+    }
+
     public boolean isOpen(){
         return this.isOpen;
     }
-
+    public boolean isForceClosed(){
+        return this.isForceClosed;
+    }
     public boolean isFinishedSetup() {
-        return this.people.size() > 5;
+        return this.isFinishedSetup;
     }
 
     public Veterinarian getVet() {

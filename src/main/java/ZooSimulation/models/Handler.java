@@ -9,6 +9,7 @@ public class Handler extends Person {
 
     public Handler(String name){
         super(name);
+        this.assignedAnimals = new ArrayList<>();
     }
 
     public Handler(String name, int age) {

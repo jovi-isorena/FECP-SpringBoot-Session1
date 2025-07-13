@@ -15,7 +15,7 @@ public class VendorMenu {
             System.out.println("4. Exit");
             System.out.print("Choose Option (1-4): ");
             choice = scanner.nextInt();
-
+            scanner.nextLine();
 
             return choice;
     }

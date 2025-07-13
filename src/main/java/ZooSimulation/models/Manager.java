@@ -4,6 +4,10 @@ public class Manager extends Person {
     private String userName;
     private String password;
 
+    public Manager(String name){
+        super(name);
+    }
+
     public Manager(String name, int age){
         super(name, age);
     }

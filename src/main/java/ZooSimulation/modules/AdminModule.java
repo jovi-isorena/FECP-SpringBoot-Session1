@@ -3,23 +3,30 @@ package ZooSimulation.modules;
 import ZooSimulation.models.*;
 import ZooSimulation.views.*;
 import java.util.Scanner;
-// todo vet timestamp and
-// enclosure types,
-// add animal, animal factory,
-// people factory
+
+/*
+     drink and all the shops (done)
+     set animal for handler (done)
+     add animal (done)
+     remove admin module loop (done)
+     force close zoo (done)
+
+     TODO enclosure types
+     TODO add animal, animal factory,
+     TODO person factory
+     TODO vet timestamp
+     TODO error handling (error enums)
+*/
+
 public class AdminModule {
     private Zoo zoo;
     Scanner scanner = new Scanner(System.in);
 
-    //    Manager zooManager = new Manager("user1","password1");
     public AdminModule(Zoo zoo){
         this.zoo = zoo;
     }
 
     public Zoo start(){
-        // Initial setup
-        if (!zoo.isFinishedSetup()) ZooSetupMainMenu.setup(zoo);
-
         // Admin log-in
         Manager manager = null;
         while (manager == null){
@@ -37,19 +44,26 @@ public class AdminModule {
                     handlerModule();
                     break;
                 }
-                case "3": { // Open zoo to visitor shop
+                case "3": { // Access Vendor module
+                    vendorManagement();
+                    break;
+                }
+                case "4": { // Add animal
+                    addAnimal();
+                    break;
+                }
+                case "5": { // Open zoo to visitors
                     System.out.println("Opened the zoo for visitors!");
                     zoo.openTheZoo();
                     break;
                 }
-                case "4": { // Close zoo to visitors
-                    System.out.println("Closed the zoo for visitors!");
+                case "6": { // Close zoo to visitors
+                    System.out.println("Closing the zoo...");
                     zoo.closeTheZoo();
-                    //zoo.ForceClose();
-                    //return;
-                    break;
+                    zoo.forceCloseZoo();
+                    return null;
                 }
-                case "5": { // Exit
+                case "7": { // Exit
                     System.out.println("Exiting... Thank you!");
                     return zoo;
                 }
@@ -73,7 +87,7 @@ public class AdminModule {
                 System.out.println("Error: This vendor is not assigned to any shop.");
                 return;
             }
-            System.out.println("Welcome " + validVendor.getName() + "! Managing the " + assignedShop.getShopType() + " shop.");
+            System.out.println("Welcome " + validVendor.getName() + "! Managing the " + assignedShop.getName() + " shop.");
             vendorItemMenu(assignedShop);
         } else {
             System.out.println("❌ Vendor not found.");
@@ -96,20 +110,16 @@ public class AdminModule {
                 case 3:
                     RemoveItemView.print(assignedShop, scanner);
                     break;
-
             }
         } while (choice != 4);
-        scanner.close();
         System.out.println("Exiting vendor menu... Thank you!");
     }
 
-
-
-
-//    public void addAnimal(){
-//        Animal animal = AddAnimalView.print();
-//        zoo.getAnimals().add(animal);
-//    }
+    public void addAnimal(){
+        Animal animal = AddAnimalView.print(zoo.getPeople());
+        if (animal == null) return;
+        zoo.getAnimals().add(animal);
+    }
 
     public void handlerModule() {
         Handler handler = HandlerValidationView.validate(zoo.getPeople());
@@ -137,10 +147,10 @@ public class AdminModule {
 
 
     public Vendor isVendorValid(String vendorName){
-       return (Vendor)zoo.getPeople()
-               .stream()
-               .filter(p -> p.getName().equals(vendorName))
-               .findFirst()
-               .orElse(null);
+        return (Vendor)zoo.getPeople()
+                .stream()
+                .filter(p -> p.getName().equals(vendorName))
+                .findFirst()
+                .orElse(null);
     }
 }
