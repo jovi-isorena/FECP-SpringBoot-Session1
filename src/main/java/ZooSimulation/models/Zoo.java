@@ -63,4 +63,11 @@ public class Zoo {
     public boolean isFinishedSetup() {
         return this.people.size() < 10;
     }
+
+    public Veterinarian getVet() {
+        return (Veterinarian) people.stream().filter(p->p.getRole() == Role.VETERINARIAN).findFirst().orElse(null);
+    }
+    public Hospital getHospital() {
+        return (Hospital) this.getBuildings().stream().filter(b -> b.getName().equalsIgnoreCase("Hospital")).findFirst().orElse(null);
+    }
 }

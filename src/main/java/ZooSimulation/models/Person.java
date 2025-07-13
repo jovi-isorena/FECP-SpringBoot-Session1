@@ -5,6 +5,7 @@ public class Person {
     private int age;
     private String location;
     private Ticket ticket;
+    private Role role;
 
     public Person(String name, int age) {
         this.name = name;
@@ -47,7 +48,14 @@ public class Person {
     }
 
     public void goTo(String destination){
+        this.location = destination;
+    }
+    public Role getRole() {
+        return role;
+    }
 
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
 
