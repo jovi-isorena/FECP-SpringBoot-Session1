@@ -19,10 +19,12 @@ public class Vendor extends Person {
     public Shop getAssignedShop() {
         return assignedShop;
     }
-    // TODO: implement sell() method in Vendor. Transfer logic from ZooModule View
-    public void sell(){}
 
     public void setAssignedShop(Shop assignedShop) {
         this.assignedShop = assignedShop;
     }
+    // TODO: implement sell() method in Vendor. Transfer logic from ZooModule View
+    public void sell(){}
+
+
 }

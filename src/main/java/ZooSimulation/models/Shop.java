@@ -6,12 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shop extends Building{
-    private List<String> products = new ArrayList<>();
+    private Vendor assignedVendor;
 
-    public List<String> getShopProducts() {
+
+    public Shop(Vendor vendor) {
+        this.assignedVendor = vendor;
+    }
+
+    public Vendor getAssignedVendor() {
+        return assignedVendor;
+    }
+
+    public void setAssignedVendor(Vendor vendor) {
+        this.assignedVendor = vendor;
+    }
+
+    private HashMap<String, Double> products = new HashMap<>();
+
+    public HashMap<String, Double> getShopProducts() {
         return products;
     }
 
+    public void setProducts(HashMap<String, Double> products) {
+        this.products = products;
+    }
 
     private String shopType;
 
@@ -24,14 +42,13 @@ public class Shop extends Building{
     }
 
     public void listItems(){
-        for(String product: products){
-            System.out.println(product);
+        for(String productKey: products.keySet()){
+            System.out.println(productKey + " - " + products.get(productKey));
         }
-
     }
 
-    public void addItems(String productName){
-        products.add(productName);
+    public void addItems(String productName,Double price){
+       products.put(productName,price);
 
     }
 
