@@ -3,10 +3,10 @@ package ZooSimulation.views;
 import java.util.Scanner;
 
 public class AdminMainMenu {
-    public static String print(){
+    public static String chooseOption(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Zoo Admin Main Menu");
+        System.out.println("\n=== Zoo Admin Main Menu ===");
         System.out.println("1. Setup Zoo Staff");
         System.out.println("2. Access Handler Module");
         System.out.println("3. Open Zoo to Visitors");

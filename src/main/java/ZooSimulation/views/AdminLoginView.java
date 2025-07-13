@@ -2,26 +2,33 @@ package ZooSimulation.views;
 
 import ZooSimulation.models.ErrorMessage;
 import ZooSimulation.models.Manager;
+import ZooSimulation.models.Zoo;
 
 import java.util.Scanner;
 
 public class AdminLoginView  {
     private static Manager manager;
 
-    public static Manager print(){
+    public static Manager validate(Zoo zoo) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("=== Welcome to the Zoo Admin Console ===");
-        System.out.println("Please log in");
 
+        System.out.println("=== ADMIN LOGIN ===");
         System.out.print("Enter username: ");
-        manager.setUserName(sc.nextLine());
+        String inputUsername = sc.nextLine();
 
         System.out.print("Enter password: ");
-        manager.setPassword(sc.nextLine());
+        String inputPassword = sc.nextLine();
 
-        if(manager.getUserName().equals("")){
-            System.out.println(ErrorMessage.MISSING_INPUT);
+        Manager stored = zoo.getManager();
+
+        if (stored != null &&
+                stored.getUserName().equals(inputUsername) &&
+                stored.getPassword().equals(inputPassword)) {
+            return stored; // login successful
+        } else {
+            System.out.println("Invalid credentials.");
+            return null;
         }
-        return manager;
     }
+
 }

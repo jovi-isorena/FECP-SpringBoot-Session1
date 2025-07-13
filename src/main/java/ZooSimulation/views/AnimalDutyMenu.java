@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class AnimalDutyMenu {
     public static Animal chooseAnimal(Handler handler) {
-        System.out.println("Welcome, Handler " + handler.getName());
+        System.out.println("\nWelcome, Handler " + handler.getName());
         List<Animal> assignedAnimals = handler.getAssignedAnimals();
         Scanner sc = new Scanner(System.in);
 
@@ -18,7 +18,7 @@ public class AnimalDutyMenu {
         }
 
         while (true) {
-            System.out.println("\n--- Animal Duty Menu ---");
+            System.out.println("\n=== Animal Duty Menu ===");
             for (int i = 0; i < assignedAnimals.size(); i++) {
                 Animal a = assignedAnimals.get(i);
                 System.out.printf("%d. %s (%s)%n", i + 1, a.getName(), a.getClass().getSimpleName());

@@ -10,6 +10,7 @@ public class HandlerValidationView {
 
     public static Handler validate(List<Person> people) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("\nHandler Module:");
         System.out.print("Enter your name (Handler): ");
         String handlerName = sc.nextLine();
 
