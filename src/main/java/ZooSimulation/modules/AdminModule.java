@@ -1,9 +1,6 @@
 package ZooSimulation.modules;
 
-import ZooSimulation.models.Animal;
-import ZooSimulation.models.Manager;
-import ZooSimulation.models.Vendor;
-import ZooSimulation.models.Zoo;
+import ZooSimulation.models.*;
 import ZooSimulation.views.*;
 
 
@@ -18,55 +15,60 @@ public class AdminModule {
         this.zoo = zoo;
     }
 
-    public Zoo start(){
+    public Zoo start() {
         Manager manager = AdminLoginView.print();
         boolean valid = isManagerValid(manager);
-        if(valid){
+        if (valid) {
             ManagerMainMenu.print();
 
         }
         return zoo;
+    }
 
+//        call mo nalang to pag need ilabas yung vendor management and yung vendor item menu
 
-//        Used for shop assigning, vendor validation, and vendor name input
-
-//        GiftShop giftShop = new GiftShop();
-//        FoodShop foodShop = new FoodShop();
-//        DrinksShop drinksShop = new DrinksShop();
-//
-        String vendorName = VendorLoginForm.print();
+    private void vendorManagement() {
+        System.out.println("\n--- Vendor Login ---");
+        String vendorName = VendorLoginForm.print(scanner);
         Vendor validVendor = isVendorValid(vendorName);
-//        Vendor assignVendor = Scanner.nextLine();
-//        if (validVendor != null){
-//            validVendor.getAssignedShop();
-//            assignVendor.setAssignedShop();
-//            return zoo;
-//            }
 
-        {
-        int choice = 0;
-            do {
-                choice = VendorMenu.print(scanner);
-                switch (choice) {
-                    case 1:
-                        ListItemView.print(validVendor);
-                        break;
-
-                    case 2:
-                        AddItemView.print(validVendor);
-                        break;
-
-                    case 3:
-                        RemoveItemView.print(validVendor);
-                        break;
-
-                }
-            }while (choice !=4);
-            scanner.close();
-
-            return zoo;
+        if (validVendor != null) {
+            Shop assignedShop = validVendor.getAssignedShop();
+            if (assignedShop == null) {
+                System.out.println("Error: This vendor is not assigned to any shop.");
+                return;
+            }
+            System.out.println("Welcome " + validVendor.getName() + "! Managing the " + assignedShop.getShopType() + " shop.");
+            vendorItemMenu(assignedShop);
+        } else {
+            System.out.println("❌ Vendor not found.");
         }
     }
+
+    private void vendorItemMenu (Shop assignedShop){
+        int choice;
+        do {
+            choice = VendorMenu.print(scanner);
+            switch (choice) {
+                case 1:
+                    ListItemView.print(assignedShop);
+                    break;
+
+                case 2:
+                    AddItemView.print(assignedShop, scanner);
+                    break;
+
+                case 3:
+                    RemoveItemView.print(assignedShop, scanner);
+                    break;
+
+            }
+        } while (choice != 4);
+        scanner.close();
+        System.out.println("Exiting vendor menu... Thank you!");
+    }
+
+
 
 
 //    public void addAnimal(){
