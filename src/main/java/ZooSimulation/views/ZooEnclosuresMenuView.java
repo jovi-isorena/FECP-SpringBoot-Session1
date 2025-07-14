@@ -6,22 +6,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ZooEnclosuresMenuView {
-    public static Enclosure<?> print(Zoo zoo){
+    public static Building print(Zoo zoo){
 //        Enclosure<?> pachydermEnclosures = zoo.getBuildings().stream().filter(b -> b instanceof Enclosure ).toList();
         // TODO: filter the buildings
-        Enclosure<Pachyderm> pachydermEnclosure = (Enclosure<Pachyderm>)zoo.getBuildings().stream().filter(b-> b.getName().equals("Pachyderm Enclosure")).findFirst().orElse(null);
-        Enclosure<Feline> felineEnclosure = (Enclosure<Feline>)zoo.getBuildings().stream().filter(b->b.getName().equals("Feline Enclosure")).findFirst().orElse(null);
-        Enclosure<Bird> birdEnclosure = (Enclosure<Bird>)zoo.getBuildings().stream().filter(b->b.getName().equals("Bird Enclosure")).findFirst().orElse(null);
+        Building pachydermEnclosure = zoo.getBuildings().stream().filter(b-> b.getName() != null && b.getName().equals("Pachyderm Enclosure")).findFirst().orElse(null);
+        Building felineEnclosure = zoo.getBuildings().stream().filter(b->b.getName() != null && b.getName().equals("Feline Enclosure")).findFirst().orElse(null);
+        Building birdEnclosure = zoo.getBuildings().stream().filter(b->b.getName() != null && b.getName().equals("Bird Enclosure")).findFirst().orElse(null);
         Scanner sc = new Scanner(System.in);
         String input = "";
-        Enclosure<?> selectedEnclosure = null;
+        Building selectedEnclosure = null;
         do{
             System.out.println("=== Zoo Enclosure ===");
             System.out.println("Choose Enclosure");
-            System.out.printf("1. Pachyderm ()\n");
-            System.out.printf("2. Feline ()\n");
-            System.out.printf("3. Bird ()\n");
+            System.out.println("1. Pachyderm (Elephant, Rhino, Hippo)");
+            System.out.println("2. Feline (Tiger, Lion, Cheetah)");
+            System.out.println("3. Bird (Owl, Falcon, Parrot)");
             System.out.print("Choose an option: ");
+
             input = sc.nextLine();
             if (input.equals("1")){
                 selectedEnclosure = pachydermEnclosure;
@@ -34,7 +35,7 @@ public class ZooEnclosuresMenuView {
             }
         }while(selectedEnclosure == null);
 
-        sc.close();
+//        sc.close();
         return selectedEnclosure;
     }
 }

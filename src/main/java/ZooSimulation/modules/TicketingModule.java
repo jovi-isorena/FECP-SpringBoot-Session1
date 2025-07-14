@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class TicketingModule {
     private Zoo zoo;
-
+    private Visitor validatedVisitor;
     public TicketingModule(Zoo zoo){
         this.zoo = zoo;
     }
@@ -23,9 +23,9 @@ public class TicketingModule {
             if (isUserBuying) {
                 purchaseTicket();
             } else {
-                Visitor visitor = TicketValidationView.validate(zoo.getPeople());
-                if (visitor != null) {
-                    visitor.goTo("Zoo");
+                validatedVisitor = TicketValidationView.validate(zoo.getPeople());
+                if (validatedVisitor != null) {
+                    validatedVisitor.goTo("Zoo");
                     break;
                 } else {
                     System.out.println("Invalid ticket. Please try again.");
@@ -85,5 +85,9 @@ public class TicketingModule {
 
     public Zoo getZoo() {
         return zoo;
+    }
+
+    public Visitor validatedVisitor(){
+        return this.validatedVisitor;
     }
 }

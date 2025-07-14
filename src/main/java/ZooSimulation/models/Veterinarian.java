@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Veterinarian extends Person {
     public Veterinarian(String name) {
-        super(name);
+        super(name,Role.VETERINARIAN);
     }
     public void lecture(){
         System.out.printf("%s gives a science lecture on animal health and conservation.\n", getName());

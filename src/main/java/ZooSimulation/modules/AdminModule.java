@@ -41,15 +41,15 @@ public class AdminModule {
                     break;
                 }
                 case "2": { // Access Handler module
-                    handlerModule();
+                    addAnimal();
                     break;
                 }
                 case "3": { // Access Vendor module
-                    vendorManagement();
+                    handlerModule();
                     break;
                 }
                 case "4": { // Add animal
-                    addAnimal();
+                    vendorManagement();
                     break;
                 }
                 case "5": { // Open zoo to visitors

@@ -80,6 +80,6 @@ public class Zoo {
         return (Veterinarian) people.stream().filter(p->p.getRole() == Role.VETERINARIAN).findFirst().orElse(null);
     }
     public Hospital getHospital() {
-        return (Hospital) this.getBuildings().stream().filter(b -> b.getName().equalsIgnoreCase("Hospital")).findFirst().orElse(null);
+        return (Hospital) this.getBuildings().stream().filter(b -> b.getName() != null && b.getName().equalsIgnoreCase("Hospital")).findFirst().orElse(null);
     }
 }

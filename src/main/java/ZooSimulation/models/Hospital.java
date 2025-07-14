@@ -9,7 +9,9 @@ public class Hospital extends Building{
     private List<HospitalRecord> hospitalRecords;
 
     public Hospital(){
+        super("Hospital");
         this.hospitalRecords = new ArrayList<>();
+
     }
 
     public List<HospitalRecord> getRecords(){

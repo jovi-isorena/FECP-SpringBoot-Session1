@@ -12,6 +12,7 @@ public class ZooModule {
     private Visitor visitor;
     public ZooModule(Zoo zoo, Visitor visitor) {
         this.zoo = zoo;
+        this.visitor = visitor;
     }
 
     public Zoo start(){
@@ -35,10 +36,14 @@ public class ZooModule {
 
     public void visitEnclosure(){
         visitor.setLocation("Enclosures");
-        Enclosure<?> selectedEnclosure = ZooEnclosuresMenuView.print(zoo);
+        Enclosure<?> selectedEnclosure = (Enclosure<?>) ZooEnclosuresMenuView.print(zoo);
         visitor.setLocation(selectedEnclosure.getName());
         // TODO: change the feeding session by group
-        List<Animal> hungryAnimals = new ArrayList<>(selectedEnclosure.getAnimals().stream().filter(Animal::isHungry).toList());
+        if(selectedEnclosure.getAnimals() == null){
+            System.out.println("No animals in this enclosure.");
+            return;
+        }
+        List<Animal> hungryAnimals =  new ArrayList<>(selectedEnclosure.getAnimals().stream().filter(Animal::isHungry).toList());
         for (Animal hungryAnimal : hungryAnimals){
             FeedAnimalView.print(hungryAnimal);
         }

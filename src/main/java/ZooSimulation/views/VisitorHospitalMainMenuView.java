@@ -28,7 +28,7 @@ public class VisitorHospitalMainMenuView {
                 break;
             }
         }
-        sc.close();
+        //sc.close();
         return input;
     }
 }
