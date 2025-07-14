@@ -24,13 +24,12 @@ public class ZooSimulation {
         do{
             zoo = adminModule.start();
             if(zoo == null || zoo.isForceClosed()) return;
-        }while(zoo.isFinishedSetup() && zoo.isOpen());
+        }while(!zoo.isFinishedSetup() || !zoo.isOpen());
 
         TicketingModule ticketingModule = new TicketingModule(zoo);
         zoo = ticketingModule.start();
 
         // for zoo module
-
 
     }
 }
