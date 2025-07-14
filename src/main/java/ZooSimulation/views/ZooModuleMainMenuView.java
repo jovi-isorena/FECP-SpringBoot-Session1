@@ -12,7 +12,7 @@ public class ZooModuleMainMenuView {
         System.out.println("4. Leave Zoo");
         System.out.print("Choose an option: ");
         String input = sc.nextLine();
-        sc.close();
+//        sc.close();
         return input;
     }
 }

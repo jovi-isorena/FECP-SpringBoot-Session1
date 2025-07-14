@@ -10,7 +10,10 @@ public class Person {
     public Person(String name) {
         this.name = name;
     }
-
+    public Person(String name, Role role) {
+        this.name = name;
+        this.role = role;
+    }
     public Person(String name, int age) {
         this.name = name;
         this.age = age;

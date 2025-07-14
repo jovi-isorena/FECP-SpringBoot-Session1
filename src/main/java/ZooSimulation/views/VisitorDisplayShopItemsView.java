@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class VisitorDisplayShopItemsView {
     public static Map<String,Double> print(Shop shop){
         Scanner sc = new Scanner(System.in);
-        System.out.printf("=== %s ===\n",shop.getName());
+        System.out.printf("=== %s ===\n",shop.getShopType());
         Map.Entry<String,Double>[] products = getProductEntries(shop);
         Map<String,Double> selectedProducts = null;
         // if shop is empty, do nothing
@@ -34,7 +34,7 @@ public class VisitorDisplayShopItemsView {
             for (String index: selections){
                 try{
                     selectedIndex = Integer.parseInt(index) -1;
-                    if (selectedIndex <= 0){
+                    if (selectedIndex < 0){
                         System.out.println(ErrorMessage.NEGATIVE_NUMBER);
                         selectedIndex = -1;
                         break;

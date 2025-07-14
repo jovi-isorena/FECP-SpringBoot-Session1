@@ -19,7 +19,7 @@ public class VisitorCheckoutPromptView {
             input = sc.nextLine();
         }while(!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n"));
 
-        sc.close();
+        //sc.close();
         return input.equalsIgnoreCase("y");
     }
 }

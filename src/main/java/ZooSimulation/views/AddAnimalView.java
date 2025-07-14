@@ -47,7 +47,7 @@ public class AddAnimalView {
         System.out.print("Enter handler's name to assign this animal: ");
         String handlerName = sc.nextLine().trim();
         Handler handler = findHandlerByName(people, handlerName);
-        System.out.println("handla: " + handler.getName());
+        System.out.println("Handler: " + handler.getName());
 
         if (handler == null) {
             System.out.println("Handler not found. Animal not assigned.");
