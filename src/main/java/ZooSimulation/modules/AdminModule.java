@@ -87,7 +87,7 @@ public class AdminModule {
                 System.out.println("Error: This vendor is not assigned to any shop.");
                 return;
             }
-            System.out.println("Welcome " + validVendor.getName() + "! Managing the " + assignedShop.getName() + " shop.");
+            System.out.println("Welcome " + validVendor.getName() + "! Managing the " + assignedShop.getShopType() + " shop.");
             vendorItemMenu(assignedShop);
         } else {
             System.out.println("❌ Vendor not found.");

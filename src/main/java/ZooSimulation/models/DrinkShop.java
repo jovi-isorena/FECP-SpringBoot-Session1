@@ -1,7 +1,9 @@
 package ZooSimulation.models;
 
 public class DrinkShop extends Shop{
-    public DrinkShop(String name) {
-        super(name); //
+    public DrinkShop(Vendor vendor) {
+        super(vendor);
+
+        setShopType("Drink");
     }
 }

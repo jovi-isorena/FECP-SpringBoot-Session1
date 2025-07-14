@@ -27,10 +27,41 @@ public class ZooSetupMainMenu {
 //        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Bird Enclosure: ")));
 
         // Vendor setup
-//        zoo.getPeople().add(new Vendor(prompt(sc, "Enter Vendor for Ticket Shop: "), new TicketShop("Ticket")));
-//        zoo.getPeople().add(new Vendor(prompt(sc, "Enter Vendor for Gift Shop: "), new GiftShop("Gift")));
-//        zoo.getPeople().add(new Vendor(prompt(sc, "Enter Vendor for Food Shop: "), new FoodShop("Food")));
-//        zoo.getPeople().add(new Vendor(prompt(sc, "Enter Vendor for Drink Shop: "), new DrinkShop("Drink")));
+        //Ticket Shop
+        String ticketVendorName = prompt(sc, "Enter Vendor for Ticket Shop: ");
+        Vendor ticketVendor = new Vendor(ticketVendorName);
+        Shop ticketShop = new TicketShop(ticketVendor);
+        ticketVendor.setAssignedShop(ticketShop);
+        zoo.getPeople().add(ticketVendor);
+        zoo.getBuildings().add(ticketShop);
+        System.out.println("✅ " + ticketVendorName + " assigned to Ticket Shop.");
+
+        //Food Shop
+        String foodVendorName = prompt(sc, "Enter Vendor for Food Shop: ");
+        Vendor foodVendor = new Vendor(foodVendorName);
+        Shop foodShop = new FoodShop(foodVendor);
+        foodVendor.setAssignedShop(foodShop);
+        zoo.getPeople().add(foodVendor);
+        zoo.getBuildings().add(foodShop);
+        System.out.println("✅ " + foodVendorName + " assigned to Food Shop.");
+
+        //Gift Shop
+        String giftVendorName = prompt(sc, "Enter Vendor for Gift Shop: ");
+        Vendor giftVendor = new Vendor(giftVendorName);
+        Shop giftShop = new GiftShop(giftVendor);
+        giftVendor.setAssignedShop(giftShop);
+        zoo.getPeople().add(giftVendor);
+        zoo.getBuildings().add(giftShop);
+        System.out.println("✅ " + giftVendorName + " assigned to Gift Shop.");
+
+        //Drink Shop
+        String drinkVendorName = prompt(sc, "Enter Vendor for Drink Shop: ");
+        Vendor drinkVendor = new Vendor(drinkVendorName);
+        Shop drinkShop = new DrinkShop(drinkVendor);
+        drinkVendor.setAssignedShop(drinkShop);
+        zoo.getPeople().add(drinkVendor);
+        zoo.getBuildings().add(drinkShop);
+        System.out.println("✅ " + drinkVendorName + " assigned to Drink Shop.");
 
         System.out.println("\nZoo setup complete!\n");
         zoo.finishSetup();

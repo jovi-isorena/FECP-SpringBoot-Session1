@@ -1,7 +1,9 @@
 package ZooSimulation.models;
 
 public class TicketShop extends Shop{
-    public TicketShop(String name) {
-        super(name);
+    public TicketShop(Vendor vendor) {
+        super(vendor);
+
+        setShopType("Ticket");
     }
 }
