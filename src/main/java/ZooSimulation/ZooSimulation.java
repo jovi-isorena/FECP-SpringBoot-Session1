@@ -3,6 +3,7 @@ package ZooSimulation;
 import ZooSimulation.models.*;
 import ZooSimulation.modules.AdminModule;
 import ZooSimulation.modules.TicketingModule;
+import ZooSimulation.modules.ZooModule;
 import ZooSimulation.views.WelcomeView;
 
 import java.util.ArrayList;
@@ -24,13 +25,15 @@ public class ZooSimulation {
         do{
             zoo = adminModule.start();
             if(zoo == null || zoo.isForceClosed()) return;
-        }while(zoo.isFinishedSetup() && zoo.isOpen());
+        }while(!zoo.isFinishedSetup() || !zoo.isOpen());
 
         TicketingModule ticketingModule = new TicketingModule(zoo);
         zoo = ticketingModule.start();
 
         // for zoo module
-
+        Visitor visitor = ticketingModule.validatedVisitor();
+        ZooModule zooModule = new ZooModule(zoo, visitor);
+        zooModule.start();
 
     }
 }
