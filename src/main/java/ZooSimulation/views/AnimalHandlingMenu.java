@@ -33,7 +33,8 @@ public class AnimalHandlingMenu {
                 System.out.println( "Sending " + animal.getName() + " to the vet.");
                 System.out.println(animal.getName() + " admitted at: " + now.format(formatter));
 
-                animal.setLocation("vet");
+                animal.setLocation("Hospital");
+                animal.setHealthy(false);
                 break;
             default:
                 System.out.println("Invalid choice. Please try again.");

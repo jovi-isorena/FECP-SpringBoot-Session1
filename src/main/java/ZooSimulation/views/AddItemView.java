@@ -17,7 +17,7 @@ public class AddItemView {
         Double price = scanner.nextDouble();
         scanner.nextLine();
 
-        if (!productName.trim().isEmpty() && productName.matches("[a-zA-Z]+")) {
+        if (!productName.trim().isEmpty() && productName.matches("[a-zA-Z ]+")) {
 //            System.out.print("Which shop does this item belong to? (Gift/Food/Drinks): ");
 //            assignedShop.setShopType(shopType);
             shop.addItems(productName,price);

@@ -64,7 +64,13 @@ public class AdminModule {
                     return null;
                 }
                 case "7": { // Exit
-                    System.out.println("Exiting... Thank you!");
+                    boolean setupNotDone = !zoo.isFinishedSetup() && !zoo.isForceClosed();
+                    boolean zooClosed = !zoo.isOpen() && !zoo.isForceClosed();
+
+                    if (setupNotDone) System.out.println("Zoo setup is not finished");
+                    if (zooClosed) System.out.println("Zoo is still closed");
+                    if (!setupNotDone && !zooClosed) System.out.println("Exiting... Thank you!");
+
                     return zoo;
                 }
                 default: {
@@ -73,8 +79,6 @@ public class AdminModule {
             }
         }
     }
-
-//        call mo nalang to pag need ilabas yung vendor management and yung vendor item menu
 
     private void vendorManagement() {
         System.out.println("\n--- Vendor Login ---");
