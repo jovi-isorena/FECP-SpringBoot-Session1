@@ -43,18 +43,38 @@ public class AddAnimalView {
             System.out.println("Invalid option. Animal not created.");
             return null;
         }
+        if(animal instanceof Parrot){
 
-        System.out.print("Enter handler's name to assign this animal: ");
-        String handlerName = sc.nextLine().trim();
-        Handler handler = findHandlerByName(people, handlerName);
-        System.out.println("handla: " + handler.getName());
+        }else if(animal instanceof Owl){
 
-        if (handler == null) {
-            System.out.println("Handler not found. Animal not assigned.");
-        } else {
-            handler.assignAnimal(animal);
-            System.out.println(animal.getName() + " assigned to handler " + handler.getName());
+        }else if(animal instanceof Falcon){
+
+        }else if(animal instanceof Rhino){
+
+        }else if(animal instanceof Hippo){
+
+        }else if(animal instanceof Elephant){
+
+        }else if(animal instanceof Tiger){
+
+        }else if(animal instanceof Lion){
+
+        }else if(animal instanceof Cheetah){
+
         }
+
+// change logic for assignment to handler
+//        System.out.print("Enter handler's name to assign this animal: ");
+//        String handlerName = sc.nextLine().trim();
+//        Handler handler = findHandlerByName(people, handlerName);
+//        System.out.println("handla: " + handler.getName());
+
+//        if (handler == null) {
+//            System.out.println("Handler not found. Animal not assigned.");
+//        } else {
+//            handler.assignAnimal(animal);
+//            System.out.println(animal.getName() + " assigned to handler " + handler.getName());
+//        }
 
         return animal;
     }
@@ -65,4 +85,5 @@ public class AddAnimalView {
                 .findFirst()
                 .orElse(null);
     }
+
 }

@@ -9,11 +9,11 @@ public class Vendor extends Person {
     private Shop assignedShop;
 
     public Vendor(String name) {
-        super(name);
+        super(name, Role.VENDOR);
     }
 
     public Vendor(String name, Shop assignedShop) {
-        super(name);
+        super(name, Role.VENDOR);
         this.assignedShop = assignedShop;
     }
 

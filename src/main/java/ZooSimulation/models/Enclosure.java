@@ -4,6 +4,15 @@ import java.util.List;
 
 public class Enclosure<T extends Animal> extends Building{
     private List<T> animals;
+    private Handler assignedHandler;
+
+    public Handler getAssignedHandler() {
+        return assignedHandler;
+    }
+
+    public void setAssignedHandler(Handler assignedHandler) {
+        this.assignedHandler = assignedHandler;
+    }
 
     public List<T> getAnimals() {
         return animals;

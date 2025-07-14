@@ -22,9 +22,21 @@ public class ZooSetupMainMenu {
         zoo.getPeople().add(new Veterinarian(vetName));
 
         // Handler setup
-        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Pachyderm Enclosure: ")));
-//        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Feline Enclosure: ")));
-//        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Bird Enclosure: ")));
+        Handler pachydermHandler = new Handler(prompt(sc, "Enter Handler's name for Pachyderm Enclosure: "));
+        zoo.getPeople().add(pachydermHandler);
+        Enclosure<?> pachydermEnclosure = zoo.getEnclosure("Pachyderm Enclosure");
+        pachydermEnclosure.setAssignedHandler(pachydermHandler);
+        pachydermHandler.setHandlingEnclosure(pachydermEnclosure);
+        Handler felineHandler = new Handler(prompt(sc, "Enter Handler's name for Feline Enclosure: "));
+        zoo.getPeople().add(felineHandler);
+        Enclosure<?> felineEnclosure = zoo.getEnclosure("Feline Enclosure");
+        felineEnclosure.setAssignedHandler(felineHandler);
+        felineHandler.setHandlingEnclosure(felineEnclosure);
+        Handler birdHandler = new Handler(prompt(sc, "Enter Handler's name for Bird Enclosure: "));
+        zoo.getPeople().add(birdHandler);
+        Enclosure<?> birdEnclosure = zoo.getEnclosure("Bird Enclosure");
+        birdEnclosure.setAssignedHandler(birdHandler);
+        birdHandler.setHandlingEnclosure(birdEnclosure);
 
         // Vendor setup
         //Ticket Shop

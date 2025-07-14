@@ -5,21 +5,21 @@ public class Manager extends Person {
     private String password;
 
     public Manager(String name){
-        super(name);
+        super(name, Role.MANAGER);
     }
 
     public Manager(String name, int age){
-        super(name, age);
+        super(name, age, Role.MANAGER);
     }
 
     public Manager(String name, String userName, String password) {
-        super(name); // required
+        super(name,Role.MANAGER); // required
         this.userName = userName;
         this.password = password;
     }
 
     public Manager(String name, int age, String userName, String password) {
-        super(name, age); // required
+        super(name, age, Role.MANAGER); // required
         this.userName = userName;
         this.password = password;
     }

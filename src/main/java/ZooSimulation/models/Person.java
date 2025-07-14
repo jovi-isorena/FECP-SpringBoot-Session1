@@ -7,13 +7,15 @@ public class Person {
     private Ticket ticket;
     private Role role;
 
-    public Person(String name) {
+    public Person(String name, Role role) {
         this.name = name;
+        this.role = role;
     }
 
-    public Person(String name, int age) {
+    public Person(String name, int age, Role role) {
         this.name = name;
         this.age = age;
+        this.role = role;
     }
 
     public Person(String name, int age, Ticket ticket) {

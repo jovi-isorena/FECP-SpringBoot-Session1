@@ -82,4 +82,7 @@ public class Zoo {
     public Hospital getHospital() {
         return (Hospital) this.getBuildings().stream().filter(b -> b.getName().equalsIgnoreCase("Hospital")).findFirst().orElse(null);
     }
+    public Enclosure<?> getEnclosure(String enclosureName){
+        return this.getBuildings().stream().filter(b-> b instanceof Enclosure<?> && b.getName().equalsIgnoreCase(enclosureName)).findFirst().orElse(null);
+    }
 }
