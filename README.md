@@ -3,7 +3,7 @@
 ### Lazaro, Cade Virgil
 ### Tuan, Joshua Miguel
 
----
+--- 
 
 ![sc](sc1.png)
 ![sc](sc2.png)
