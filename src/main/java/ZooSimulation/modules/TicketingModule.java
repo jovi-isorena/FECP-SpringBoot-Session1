@@ -17,15 +17,19 @@ public class TicketingModule {
         this.zoo = zoo;
     }
 
-    public Zoo start(){
-        while(true){
+    public Zoo start() {
+        while (true) {
             boolean isUserBuying = TicketingMainMenu.print();
             if (isUserBuying) {
                 purchaseTicket();
             } else {
-                Visitor visitor = TicketValidationView.validate((zoo.getPeople()));
-                if (visitor == null) break;
-                else visitor.goTo("zoo");
+                Visitor visitor = TicketValidationView.validate(zoo.getPeople());
+                if (visitor != null) {
+                    visitor.goTo("Zoo");
+                    break;
+                } else {
+                    System.out.println("Invalid ticket. Please try again.");
+                }
             }
         }
         return zoo;
