@@ -9,12 +9,13 @@ public class ZooSetupMainMenu {
     public static void setup(Zoo zoo) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("=== Zoo Setup ===");
+        System.out.println("\n=== Zoo Setup ===");
 
         // Manager setup
-        System.out.print("Enter your name (Manager): ");
+        System.out.print("Enter your name/username (Manager): ");
         String managerName = sc.nextLine();
-        zoo.setManager(new Manager(managerName));
+        zoo.getManager().setUserName(managerName);
+        zoo.getManager().setUserName(managerName);
 
         // Veterinarian setup
         System.out.print("Enter Veterinarian's name: ");
@@ -23,8 +24,8 @@ public class ZooSetupMainMenu {
 
         // Handler setup
         zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Pachyderm Enclosure: ")));
-//        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Feline Enclosure: ")));
-//        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Bird Enclosure: ")));
+        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Feline Enclosure: ")));
+        zoo.getPeople().add(new Handler(prompt(sc, "Enter Handler's name for Bird Enclosure: ")));
 
         // Vendor setup
         //Ticket Shop
@@ -34,7 +35,6 @@ public class ZooSetupMainMenu {
         ticketVendor.setAssignedShop(ticketShop);
         zoo.getPeople().add(ticketVendor);
         zoo.getBuildings().add(ticketShop);
-        System.out.println("✅ " + ticketVendorName + " assigned to Ticket Shop.");
 
         //Food Shop
         String foodVendorName = prompt(sc, "Enter Vendor for Food Shop: ");
@@ -43,7 +43,6 @@ public class ZooSetupMainMenu {
         foodVendor.setAssignedShop(foodShop);
         zoo.getPeople().add(foodVendor);
         zoo.getBuildings().add(foodShop);
-        System.out.println("✅ " + foodVendorName + " assigned to Food Shop.");
 
         //Gift Shop
         String giftVendorName = prompt(sc, "Enter Vendor for Gift Shop: ");
@@ -52,7 +51,6 @@ public class ZooSetupMainMenu {
         giftVendor.setAssignedShop(giftShop);
         zoo.getPeople().add(giftVendor);
         zoo.getBuildings().add(giftShop);
-        System.out.println("✅ " + giftVendorName + " assigned to Gift Shop.");
 
         //Drink Shop
         String drinkVendorName = prompt(sc, "Enter Vendor for Drink Shop: ");
@@ -61,7 +59,6 @@ public class ZooSetupMainMenu {
         drinkVendor.setAssignedShop(drinkShop);
         zoo.getPeople().add(drinkVendor);
         zoo.getBuildings().add(drinkShop);
-        System.out.println("✅ " + drinkVendorName + " assigned to Drink Shop.");
 
         System.out.println("\nZoo setup complete!\n");
         zoo.finishSetup();
